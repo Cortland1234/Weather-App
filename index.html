@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Simple Weather App</title>
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Linking Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background: url(images/bg-image.jpg) no-repeat;
+            background-size: cover;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form class="col-md-6 m-auto py-5">
+            <div class="input-group mb-3">
+                <input id="city-name" type="text" class="form-control" placeholder="Enter a city name ..."> <!-- Search bar for city input -->
+                <div class="input-group-append">
+                    <button onclick="getTemp()" type="button" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+        </form>
+        <div class="weather-status text-white text-center">
+            <img id="image-icon" src="" alt="">
+            <h1 id="city">Please Enter a City ... </h1>
+            <h3><span id="temp"> </span> </h3>
+            <h1 class="lead" id="weather"> </h1> <!-- Empty parameters at start of webpage -->
+        </div>
+    </div>
+<script src="javascript/app.js "></script>
+</body>
+
+</html>

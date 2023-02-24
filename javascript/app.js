@@ -3,7 +3,7 @@ const API_KEY = `14951c93f3d11e8ac8bed96dd90e8bc7`;
 // Gettings temperature and weather for city
 const getTemp = () => {
     const city = document.getElementById('city-name').value;
-    const url = `https://api.openweathermap.org/data/2.5/weather?=q${city}&appid=${API_KEY}&units=metric`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?appid=${API_KEY}&units=metric&q=${city}`;
     fetch(url)
         .then(res => res.json())
         .then(data => displayTemp(data));

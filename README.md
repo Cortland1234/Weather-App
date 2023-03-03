@@ -1,2 +1,2 @@
 # Weather-App  
-#Simple prototype for the weather web application, APCV 310
+Simple prototype for the weather web application, APCV 310

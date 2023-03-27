@@ -83,10 +83,12 @@ async function fetchWeatherData(latitude, longitude) {
   const data = await response.json();
   console.log(`Request to: ${url}: successful`);
   
-  WeatherInformation(data);
+  const WeatherInformation = WeatherInfoData(data);
+  console.log(WeatherInformation);
+  displayWeatherInformation(WeatherInformation);
 }
 
-const WeatherInformation = (data) => {
+function WeatherInfoData(data) {
 
   function getDate(line, index){
     data.list[index].dt_txt.split(" ")[0];
@@ -103,7 +105,7 @@ const WeatherInformation = (data) => {
     if(prevDate != currentDate){
         prevDate = currentDate;
         weatherInfomrationCollection.push(dailyInformation);
-        console.log(dailyInformation);
+        //console.log(dailyInformation);
         dailyInformation = [];
         dailyInformation = new Array();
     }
@@ -111,11 +113,22 @@ const WeatherInformation = (data) => {
     dailyinfo = new HourlyWeatherInformation(data.list[i]);
     dailyInformation.push( dailyinfo );
   }
-
   return weatherInfomrationCollection;
 }
 
 // Use setText to map API data to weather params
 function displayWeatherInformation(WeatherCollectionInformation) {
+  count = WeatherCollectionInformation.length;
+  // WeatherCollectionInformation:
+  // 4 days long (length 4), each with 8 seperate hour reports for every 3 hours in a 24 hour day. 
+  
+  //Demo of first day:
+  var dayOne = WeatherCollectionInformation[0];
+  count = dayOne.length;
+  document.getElementById('addContent').innerHTML += 'Day: '+ dayOne[0].date + '<br><br>';
+  for( var i = 0; i < count; i++) {
+    document.getElementById('addContent').innerHTML += 'Time: '+ dayOne[i].time +
+     ', Weather: ' + dayOne[i].actual_tmp +'<br>';
+  }
 
 }
